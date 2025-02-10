@@ -1,63 +1,74 @@
 /* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
     margin: 0;
-    padding: 0;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     color: #333;
 }
 
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #4a90e2;
     margin-bottom: 20px;
+    font-weight: 600;
     animation: fadeIn 1s ease-in-out;
 }
 
-#profile {
-    background: white;
+.profile-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: left;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     opacity: 0;
     transform: translateY(20px);
     animation: slideUp 0.5s ease-in-out forwards;
 }
 
-#profile h2 {
+.profile-card h2 {
     font-size: 1.8rem;
     color: #4a90e2;
     margin-bottom: 15px;
+    font-weight: 500;
 }
 
-#profile p {
+.profile-info {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.profile-info p {
     font-size: 1.1rem;
     margin: 10px 0;
-}
-
-#profile p strong {
     color: #555;
 }
 
-#photo {
-    display: block;
-    margin-top: 10px;
+.profile-info p strong {
+    color: #333;
+}
+
+.profile-photo {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     border: 3px solid #4a90e2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
 }
 
-#profile-button {
+.profile-button {
     background: #4a90e2;
     color: white;
     border: none;
@@ -70,9 +81,11 @@ h1 {
     opacity: 0;
     transform: translateY(20px);
     animation: slideUp 0.5s ease-in-out 0.3s forwards;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-#profile-button:hover {
+.profile-button:hover {
     background: #357abd;
     transform: scale(1.05);
 }
@@ -104,19 +117,19 @@ h1 {
         font-size: 2rem;
     }
 
-    #profile {
+    .profile-card {
         padding: 15px;
     }
 
-    #profile h2 {
+    .profile-card h2 {
         font-size: 1.5rem;
     }
 
-    #profile p {
+    .profile-info p {
         font-size: 1rem;
     }
 
-    #profile-button {
+    .profile-button {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
