@@ -1,29 +1,29 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Более современный шрифт */
-    background-color: #e9f4f9; /* Мягкий фон */
-    color: #495057; /* Более приятный цвет текста */
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9f4f9;
+    color: #495057;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    line-height: 1.6; /* Улучшена читаемость текста */
+    line-height: 1.6;
 }
 
 .container {
     background: #fff;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Более мягкая тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
     max-width: 500px;
     width: 100%;
-    transition: all 0.3s ease; /* Плавный переход */
+    transition: all 0.3s ease;
 }
 
 .container:hover {
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1); /* Усиление тени при наведении */
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card {
@@ -36,29 +36,29 @@ body {
 }
 
 .profile-photo {
-    width: 120px; /* Увеличен размер фото */
+    width: 120px;
     height: 120px;
     border-radius: 50%;
     margin-top: 10px;
-    object-fit: cover; /* Правильное масштабирование изображения */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для фото */
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    background-color: #00a3cc; /* Более современный цвет кнопки */
+    background-color: #00a3cc;
     color: white;
     border: none;
-    padding: 12px 25px; /* Увеличен размер кнопки */
-    border-radius: 8px; /* Более скругленные углы */
+    padding: 12px 25px;
+    border-radius: 8px;
     cursor: pointer;
     margin: 5px;
     font-size: 16px;
-    transition: background-color 0.3s ease; /* Плавная смена цвета */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #007ea0; /* Более темный оттенок при наведении */
+    background-color: #007ea0;
 }
 
 .requests-section {
@@ -68,6 +68,11 @@ button:hover {
 
 .requests-list {
     margin-top: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
 }
 
 .request-item {
@@ -76,17 +81,25 @@ button:hover {
     border-radius: 8px;
     margin-bottom: 15px;
     border: 1px solid #dee2e6;
-    transition: all 0.2s ease; /* Плавный переход */
+    transition: all 0.2s ease;
+    flex: 0 0 auto;
+    width: calc(100% - 10px);
+    margin-right: 10px;
 }
 
 .request-item:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Тень при наведении */
-    transform: translateY(-2px); /* Небольшой сдвиг вверх при наведении */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 .request-item p {
     margin: 5px 0;
 }
+
+.request-item:last-child {
+    margin-right: 0;
+}
+
 
 /* Адаптивность */
 @media (max-width: 600px) {
