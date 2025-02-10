@@ -1,73 +1,101 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Roboto', sans-serif; /* Более современный шрифт */
+    background-color: #e9f4f9; /* Мягкий фон */
+    color: #495057; /* Более приятный цвет текста */
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    line-height: 1.6; /* Улучшена читаемость текста */
 }
 
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Более мягкая тень */
     text-align: center;
     max-width: 500px;
     width: 100%;
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+.container:hover {
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1); /* Усиление тени при наведении */
 }
 
 .profile-card {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .profile-info {
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .profile-photo {
-    width: 100px;
-    height: 100px;
+    width: 120px; /* Увеличен размер фото */
+    height: 120px;
     border-radius: 50%;
     margin-top: 10px;
+    object-fit: cover; /* Правильное масштабирование изображения */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для фото */
 }
 
 button {
-    background-color: #007bff;
+    background-color: #00a3cc; /* Более современный цвет кнопки */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px; /* Увеличен размер кнопки */
+    border-radius: 8px; /* Более скругленные углы */
     cursor: pointer;
     margin: 5px;
     font-size: 16px;
+    transition: background-color 0.3s ease; /* Плавная смена цвета */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #007ea0; /* Более темный оттенок при наведении */
 }
 
 .requests-section {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: left;
 }
 
 .requests-list {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .request-item {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s ease; /* Плавный переход */
+}
+
+.request-item:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Тень при наведении */
+    transform: translateY(-2px); /* Небольшой сдвиг вверх при наведении */
 }
 
 .request-item p {
     margin: 5px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
