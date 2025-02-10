@@ -1,161 +1,295 @@
-сделай какой нибуть другой стиль для приложения по грузоперевозкам , фотографию по центру сверху body {
-    font-family: 'Roboto', sans-serif;
-    background: #f0f4f8; /* Более мягкий оттенок фона */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #37474f; /* Более темный, но все еще мягкий цвет текста */
-    overflow-x: hidden;
-    transition: background 0.3s ease; /* Плавный переход фона */
+/* Общие стили */
+body {
+  font-family: 'Roboto', sans-serif; /* Современный шрифт */
+  background-color: #222; /* Темный фон */
+  color: #eee; /* Светлый текст */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 550px; /* Немного больше места */
-    text-align: center;
-    padding: 30px; /* Больше отступов */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Заголовок */
-h1 {
-    font-size: 2.25rem; /* Чуть больше */
-    color: #2979ff; /* Более насыщенный синий */
-    margin-bottom: 25px;
-    font-weight: 500;
-    animation: fadeIn 0.9s ease-out; /* Более плавная анимация */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Легкая тень для объема */
+h1, h2, h3 {
+  font-weight: 700; /* Жирный шрифт для заголовков */
+  color: #fff;
+  margin-bottom: 15px;
 }
 
-/* Карточка профиля */
-.profile-card {
-    background: #fff;
-    border-radius: 16px; /* Более скругленные углы */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Усиленная тень */
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Более сложная анимация */
+a {
+  color: #ffc107; /* Акцентный цвет (желтый) */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.profile-card:hover {
-    transform: translateY(-5px); /* Больше эффект подъема */
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1); /* Более выраженная тень при наведении */
+a:hover {
+  color: #ffda64; /* Немного светлее при наведении */
 }
 
-/* Фото профиля (Сверху) */
-.profile-photo-container {
-    background: linear-gradient(135deg, #3d84ff, #2962ff); /* Градиентный фон */
-    padding: 35px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Стили навигации */
+nav {
+  background-color: #333;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Тень для глубины */
 }
 
-.profile-photo {
-    width: 130px; /* Чуть больше */
-    height: 130px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out; /* Анимация масштабирования */
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.profile-photo:hover {
-    transform: scale(1.05); /* Небольшое увеличение при наведении */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
 
-/* Информация о профиле */
-.profile-info {
-    padding: 25px;
-    text-align: left;
+nav li {
+  margin-left: 20px;
 }
 
-.profile-info h2 {
-    font-size: 1.6rem;
-    color: #263238; /* Еще более темный цвет для заголовка */
-    margin-bottom: 12px;
-    font-weight: 600;
-    letter-spacing: 0.2px; /* Небольшое увеличение межбуквенного расстояния */
+nav a {
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.profile-info p {
-    font-size: 1.05rem; /* Чуть больше размер шрифта */
-    margin: 10px 0;
-    color: #546e7a; /* Приглушенный серый */
-    line-height: 1.6; /* Улучшение читаемости */
+nav a:hover {
+  background-color: #444;
 }
 
-.profile-info p strong {
-    color: #263238;
-    font-weight: 500;
+/* Стили секций */
+section {
+  padding: 40px 0;
 }
 
-/* Кнопка */
-.profile-button {
-    background: linear-gradient(135deg, #3d84ff, #2962ff); /* Градиентный фон */
-    color: white;
-    border: none;
-    padding: 14px 28px; /* Немного больше */
-    font-size: 1.1rem; /* Больше размер шрифта */
-    border-radius: 8px; /* Более скругленные углы */
-    cursor: pointer;
-    margin-top: 25px; /* Больше отступ */
-    transition: background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Сложная анимация */
-    font-weight: 500;
-    letter-spacing: 0.7px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Усиленная тень */
-    display: inline-block;
-    text-decoration: none;
+/* Стили для Hero Section */
+#hero {
+  background: url('url_to_your_truck_image.jpg') center/cover no-repeat; /* Замените на URL изображения грузовика */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden; /* Обрезаем все, что выходит за границы */
 }
 
-.profile-button:hover {
-    background: linear-gradient(135deg, #2962ff, #1a45b8); /* Изменение градиента при наведении */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Еще более выраженная тень при наведении */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Темный оверлей для читабельности текста */
+  z-index: 1;
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Добавлено перемещение вверх */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#hero .container {
+  z-index: 2; /* Поднимаем контент над оверлеем */
 }
 
-/* Адаптивность */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
+#hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Тень для текста */
+}
 
-    .profile-info h2 {
-        font-size: 1.4rem;
-    }
+#hero p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
 
-    .profile-info p {
-        font-size: 0.95rem;
-        margin: 8px 0;
-    }
+/* Кнопка в Hero Section */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ffc107;
+  color: #222;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    .profile-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-        margin-top: 20px;
-    }
+.btn:hover {
+  background-color: #fff;
+  color: #222;
+}
 
-    .profile-photo-container {
-        padding: 25px 0;
-    }
+/* Секция "Услуги" */
+#services {
+  background-color: #2a2a2a;
+}
 
-    .profile-photo {
-        width: 110px;
-        height: 110px;
-    }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-item {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item h3 {
+  margin-top: 0;
+}
+
+.service-item p {
+  color: #ccc;
+}
+
+/* Секция "О нас" */
+#about {
+  background-color: #333;
+}
+
+/* Секция "Контакты" */
+#contact {
+  background-color: #2a2a2a;
+}
+
+#contact form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+#contact label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: #eee;
+  border-radius: 5px;
+}
+
+#contact textarea {
+  height: 150px;
+}
+
+#contact button {
+  padding: 12px 24px;
+  background-color: #ffc107;
+  color: #222;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Футер */
+footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Анимация загрузки (можно использовать при загрузке контента) */
+.loading {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Медиа-запросы (адаптивность) */
+@media (max-width: 768px) {
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  #hero h1 {
+    font-size: 2.5em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+}
+
+/* Дополнительные штрихи (грузоперевозки) */
+
+/* Иконки (Font Awesome или подобные) */
+.service-item i {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+
+/* Текстура металла (легкая) */
+body {
+  /* background-image: url('url_to_metal_texture.jpg'); */
+  /* background-blend-mode: multiply; */ /* Смешиваем текстуру с цветом */
+}
+
+/* Псевдоэлементы для создания эффекта "полос" (как на грузовике) */
+section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(255,193,7,0.8) 0%, rgba(255,255,255,0) 100%);
+  z-index: 0;
+  opacity: 0.3;
+}
+
+/* Добавляем градиентный фон для большего акцента на современность */
+body {
+  background: linear-gradient(to bottom, #222, #333);
 }
