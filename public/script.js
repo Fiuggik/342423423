@@ -42,4 +42,39 @@ function showRequests() {
         requestElement.innerHTML = `
             <p><strong>Заявка #${index + 1}</strong></p>
             <p><strong>Маршрут:</strong> ${request.route}</p>
-            <p
+            <p><strong>Описание:</strong> ${request.description}</p>
+            <p><strong>Статус:</strong> ${request.status}</p>
+        `;
+        requestsList.appendChild(requestElement);
+    });
+}
+
+// Функция для создания новой заявки
+function createRequest() {
+    const route = 'Москва - Московская область'; // Пример маршрута
+    const description = prompt('Введите описание груза:'); // Запрашиваем описание у пользователя
+
+    if (description) {
+        const newRequest = {
+            route: route,
+            description: description,
+            status: 'Новая', // Статус заявки
+        };
+        requests.push(newRequest); // Добавляем заявку в массив
+        showRequests(); // Обновляем список заявок
+    }
+}
+
+// Обработчик нажатия на кнопку "Профиль"
+profileButton.addEventListener('click', () => {
+    showProfile();
+});
+
+// Обработчик нажатия на кнопку "Создать заявку"
+createRequestButton.addEventListener('click', () => {
+    createRequest();
+});
+
+// Инициализация приложения
+tg.ready(); // Сообщаем Telegram, что приложение готово к использованию
+showRequests(); // Показываем заявки при загрузке страницы
