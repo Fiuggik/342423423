@@ -33,16 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
         tg.showAlert('Это ваш профиль!');
     });
 
-    // Обработчик нажатия на кнопку подписки
+        // Обработчик нажатия на кнопку подписки
     subscribeButton.addEventListener('click', function() {
         // Открываем платежное окно Telegram
         tg.showInvoice({
             title: 'Подписка',
             description: 'Оформите подписку за платные звезды Telegram XTR.',
-            currency: 'USD',
+            currency: 'USD', // Используем поддерживаемую валюту, например USD
             prices: [
-                { label: '1 месяц', amount: '500' }, // Пример цены: $5.00
-                { label: '3 месяца', amount: '1200' }, // Пример цены: $12.00
+                { label: '1 месяц', amount: '500' }, // Пример цены: $5.00 (500 центов)
+                { label: '3 месяца', amount: '1200' }, // Пример цены: $12.00 (1200 центов)
             ],
             payload: JSON.stringify({ subscription: 'xtr' }), // Уникальный идентификатор платежа
         }, function(invoiceStatus) {
