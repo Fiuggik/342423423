@@ -1,30 +1,56 @@
-// Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
+document.addEventListener('DOMContentLoaded', function() {
+    const profileDiv = document.getElementById('profile');
+    const profileButton = document.getElementById('profile-button');
+    const subscribeButton = document.getElementById('subscribe-button');
+    const firstName = document.getElementById('first-name');
+    const lastName = document.getElementById('last-name');
+    const username = document.getElementById('username');
+    const photo = document.getElementById('photo');
 
-// Показываем кнопку "Профиль" и данные пользователя
-function showProfile() {
-    const user = tg.initDataUnsafe.user; // Данные пользователя
+    // Инициализация Telegram Web App
+    const tg = window.Telegram.WebApp;
 
-    if (user) {
-        // Заполняем данные профиля
-        document.getElementById('first-name').textContent = user.first_name;
-        document.getElementById('last-name').textContent = user.last_name || 'Не указано';
-        document.getElementById('username').textContent = user.username || 'Не указано';
-        document.getElementById('photo').src = user.photo_url || '';
-
-        // Показываем блок профиля и кнопку
-        document.getElementById('profile').style.display = 'block';
-        document.getElementById('profile-button').style.display = 'block';
-    } else {
-        alert('Данные пользователя не найдены.');
+    // Проверяем, авторизован ли пользователь
+    if (tg.initDataUnsafe.user) {
+        // Если авторизован, показываем профиль
+        showProfile(tg.initDataUnsafe.user);
     }
-}
 
-// Обработчик кнопки "Профиль"
-document.getElementById('profile-button').addEventListener('click', () => {
-    showProfile();
+    // Функция для отображения профиля
+    function showProfile(user) {
+        profileDiv.style.display = 'block';
+        profileButton.style.display = 'block';
+        subscribeButton.style.display = 'block';
+
+        firstName.textContent = user.first_name;
+        lastName.textContent = user.last_name || '';
+        username.textContent = user.username || '';
+        photo.src = user.photo_url || '';
+    }
+
+    // Обработчик нажатия на кнопку профиля
+    profileButton.addEventListener('click', function() {
+        tg.showAlert('Это ваш профиль!');
+    });
+
+    // Обработчик нажатия на кнопку подписки
+    subscribeButton.addEventListener('click', function() {
+        // Открываем платежное окно Telegram
+        tg.showInvoice({
+            title: 'Подписка Telegram XTR',
+            description: 'Оформите подписку за платные звезды Telegram XTR.',
+            currency: 'USD',
+            prices: [
+                { label: '1 месяц', amount: '500' }, // Пример цены: $5.00
+                { label: '3 месяца', amount: '1200' }, // Пример цены: $12.00
+            ],
+            payload: JSON.stringify({ subscription: 'xtr' }), // Уникальный идентификатор платежа
+        }, function(invoiceStatus) {
+            if (invoiceStatus === 'paid') {
+                tg.showAlert('Подписка успешно оформлена!');
+            } else {
+                tg.showAlert('Оплата не завершена.');
+            }
+        });
+    });
 });
-
-// Показываем профиль сразу после загрузки, если пользователь авторизован
-tg.ready(); // Говорим Telegram, что приложение готово
-showProfile();
