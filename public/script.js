@@ -1,56 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const profileDiv = document.getElementById('profile');
-    const profileButton = document.getElementById('profile-button');
-    const subscribeButton = document.getElementById('subscribe-button');
-    const firstName = document.getElementById('first-name');
-    const lastName = document.getElementById('last-name');
-    const username = document.getElementById('username');
-    const photo = document.getElementById('photo');
+// Инициализация Telegram Web App
+const tg = window.Telegram.WebApp;
 
-    // Инициализация Telegram Web App
-    const tg = window.Telegram.WebApp;
+// Элементы DOM
+const firstNameElement = document.getElementById('first-name');
+const lastNameElement = document.getElementById('last-name');
+const usernameElement = document.getElementById('username');
+const photoElement = document.getElementById('photo');
+const profileButton = document.getElementById('profile-button');
+const requestsList = document.getElementById('requests-list');
+const createRequestButton = document.getElementById('create-request-button');
 
-    // Проверяем, авторизован ли пользователь
-    if (tg.initDataUnsafe.user) {
-        // Если авторизован, показываем профиль
-        showProfile(tg.initDataUnsafe.user);
+// Массив для хранения заявок (в реальном приложении данные будут храниться на сервере)
+let requests = [];
+
+// Функция для отображения данных профиля
+function showProfile() {
+    const user = tg.initDataUnsafe.user; // Получаем данные пользователя
+
+    if (user) {
+        firstNameElement.textContent = user.first_name || 'Не указано';
+        lastNameElement.textContent = user.last_name || 'Не указано';
+        usernameElement.textContent = user.username ? `@${user.username}` : 'Не указано';
+        photoElement.src = user.photo_url || ''; // URL фото профиля
+    } else {
+        alert('Данные пользователя недоступны.');
+    }
+}
+
+// Функция для отображения заявок
+function showRequests() {
+    requestsList.innerHTML = ''; // Очищаем список перед обновлением
+
+    if (requests.length === 0) {
+        requestsList.innerHTML = '<p>Заявок пока нет.</p>';
+        return;
     }
 
-    // Функция для отображения профиля
-    function showProfile(user) {
-        profileDiv.style.display = 'block';
-        profileButton.style.display = 'block';
-        subscribeButton.style.display = 'block';
-
-        firstName.textContent = user.first_name;
-        lastName.textContent = user.last_name || '';
-        username.textContent = user.username || '';
-        photo.src = user.photo_url || '';
-    }
-
-    // Обработчик нажатия на кнопку профиля
-    profileButton.addEventListener('click', function() {
-        tg.showAlert('Это ваш профиль!');
-    });
-
-        // Обработчик нажатия на кнопку подписки
-    subscribeButton.addEventListener('click', function() {
-        // Открываем платежное окно Telegram
-        tg.showInvoice({
-            title: 'Подписка',
-            description: 'Оформите подписку за платные звезды Telegram XTR.',
-            currency: 'USD', // Используем поддерживаемую валюту, например USD
-            prices: [
-                { label: '1 месяц', amount: '500' }, // Пример цены: $5.00 (500 центов)
-                { label: '3 месяца', amount: '1200' }, // Пример цены: $12.00 (1200 центов)
-            ],
-            payload: JSON.stringify({ subscription: 'xtr' }), // Уникальный идентификатор платежа
-        }, function(invoiceStatus) {
-            if (invoiceStatus === 'paid') {
-                tg.showAlert('Подписка успешно оформлена!');
-            } else {
-                tg.showAlert('Оплата не завершена.');
-            }
-        });
-    });
-});
+    requests.forEach((request, index) => {
+        const requestElement = document.createElement('div');
+        requestElement.className = 'request-item';
+        requestElement.innerHTML = `
+            <p><strong>Заявка #${index + 1}</strong></p>
+            <p><strong>Маршрут:</strong> ${request.route}</p>
+            <p
