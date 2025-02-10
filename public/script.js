@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     subscribeButton.addEventListener('click', function() {
         // Открываем платежное окно Telegram
         tg.showInvoice({
-            title: 'Подписка Telegram XTR',
+            title: 'Подписка',
             description: 'Оформите подписку за платные звезды Telegram XTR.',
-            currency: 'USD',
+            currency: 'XTR',
             prices: [
                 { label: '1 месяц', amount: '500' }, // Пример цены: $5.00
                 { label: '3 месяца', amount: '1200' }, // Пример цены: $12.00
