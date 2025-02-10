@@ -8,11 +8,15 @@
 </head>
 <body>
     <h1>Добро пожаловать в мини-приложение!</h1>
-    <script async src="https://telegram.org/js/telegram-widget.js?7"
-            data-telegram-login="pyfronttest_bot"
-            data-size="large"
-            data-auth-url="https://yourwebsite.com/auth"
-            data-request-access="write"></script>
+    <div id="profile" style="display: none;">
+        <h2>Ваш профиль</h2>
+        <p><strong>Имя:</strong> <span id="first-name"></span></p>
+        <p><strong>Фамилия:</strong> <span id="last-name"></span></p>
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Фото:</strong> <img id="photo" src="" alt="Profile Photo" style="width: 100px; height: 100px;"></p>
+    </div>
+    <button id="profile-button" style="display: none;">Профиль</button>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
