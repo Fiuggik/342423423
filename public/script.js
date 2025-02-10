@@ -1,30 +1,56 @@
-// Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
+document.addEventListener('DOMContentLoaded', function() {
+    const loginDiv = document.getElementById('login');
+    const profileDiv = document.getElementById('profile');
+    const loginButton = document.getElementById('login-button');
+    const profileButton = document.getElementById('profile-button');
+    const firstName = document.getElementById('first-name');
+    const lastName = document.getElementById('last-name');
+    const username = document.getElementById('username');
+    const photo = document.getElementById('photo');
 
-// Показываем кнопку "Профиль" и данные пользователя
-function showProfile() {
-    const user = tg.initDataUnsafe.user; // Данные пользователя
+    // Инициализация Telegram Web App
+    const tg = window.Telegram.WebApp;
 
-    if (user) {
-        // Заполняем данные профиля
-        document.getElementById('first-name').textContent = user.first_name;
-        document.getElementById('last-name').textContent = user.last_name || 'Не указано';
-        document.getElementById('username').textContent = user.username || 'Не указано';
-        document.getElementById('photo').src = user.photo_url || '';
-
-        // Показываем блок профиля и кнопку
-        document.getElementById('profile').style.display = 'block';
-        document.getElementById('profile-button').style.display = 'block';
+    // Показываем кнопку входа, если пользователь не авторизован
+    if (!tg.initDataUnsafe.user) {
+        loginDiv.style.display = 'block';
     } else {
-        alert('Данные пользователя не найдены.');
+        // Если пользователь уже авторизован, показываем профиль
+        showProfile(tg.initDataUnsafe.user);
     }
-}
 
-// Обработчик кнопки "Профиль"
-document.getElementById('profile-button').addEventListener('click', () => {
-    showProfile();
+    // Обработчик нажатия на кнопку входа
+    loginButton.addEventListener('click', function() {
+        tg.expand(); // Расширяем приложение на весь экран
+        tg.showPopup({
+            title: 'Авторизация',
+            message: 'Вы уверены, что хотите войти через Telegram?',
+            buttons: [
+                {id: 'yes', type: 'ok'},
+                {id: 'no', type: 'close'}
+            ]
+        }, function(buttonId) {
+            if (buttonId === 'yes') {
+                tg.sendData(JSON.stringify({action: 'login'}));
+                showProfile(tg.initDataUnsafe.user);
+            }
+        });
+    });
+
+    // Функция для отображения профиля
+    function showProfile(user) {
+        loginDiv.style.display = 'none';
+        profileDiv.style.display = 'block';
+        profileButton.style.display = 'block';
+
+        firstName.textContent = user.first_name;
+        lastName.textContent = user.last_name || '';
+        username.textContent = user.username || '';
+        photo.src = user.photo_url || '';
+    }
+
+    // Обработчик нажатия на кнопку профиля
+    profileButton.addEventListener('click', function() {
+        tg.showAlert('Это ваш профиль!');
+    });
 });
-
-// Показываем профиль сразу после загрузки, если пользователь авторизован
-tg.ready(); // Говорим Telegram, что приложение готово
-showProfile();
