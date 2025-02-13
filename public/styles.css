@@ -8,6 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: center; /* Центрируем содержимое по вертикали */
 }
 
 .container {
@@ -21,6 +23,9 @@ body {
     margin: 20px auto;
     transition: all 0.3s ease;
     flex: 1; /* Растягиваем контейнер, чтобы нижняя панель оставалась внизу */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое контейнера */
 }
 
 .container:hover {
@@ -29,10 +34,11 @@ body {
 
 .profile-card {
     margin-bottom: 30px;
+    text-align: center; /* Центрируем текст внутри карточки профиля */
 }
 
 .profile-info {
-    text-align: left;
+    text-align: center; /* Центрируем текст информации профиля */
     margin-bottom: 20px;
 }
 
@@ -49,13 +55,15 @@ button {
     background-color: #00a3cc;
     color: white;
     border: none;
-    padding: 10px 10px;
+    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     margin: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Кнопки занимают всю ширину контейнера */
+    max-width: 200px; /* Ограничиваем ширину кнопок */
 }
 
 button:hover {
@@ -70,7 +78,7 @@ button:hover {
     right: 0;
     background-color: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Центрируем кнопки в панели */
     border-radius: 8px 0 0 0;
     padding: 15px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
@@ -88,6 +96,7 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    max-width: 150px; /* Ограничиваем ширину кнопок */
 }
 
 .panel-button:hover {
@@ -98,5 +107,16 @@ button:hover {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
+    }
+
+    .bottom-panel {
+        flex-direction: column; /* Кнопки в столбик на мобильных устройствах */
+        align-items: center; /* Центрируем кнопки */
+    }
+
+    .panel-button {
+        width: 100%; /* Кнопки занимают всю ширину */
+        max-width: none; /* Убираем ограничение по ширине */
+        margin: 5px 0; /* Отступы между кнопками */
     }
 }
