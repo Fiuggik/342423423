@@ -65,12 +65,13 @@ button:hover {
 /* Нижняя панель с кнопками */
 .bottom-panel {
     position: fixed;
-    bottom: 50;
+    bottom: 0;
     left: 0;
     right: 0;
     background-color: #fff;
     display: flex;
     justify-content: space-around;
+    border-radius: 0 0 0 8px;
     padding: 15px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Убедимся, что панель поверх других элементов */
