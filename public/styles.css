@@ -23,6 +23,7 @@ html, body {
     padding: 20px;
     border-radius: 15px;
     background: linear-gradient(135deg, #f0f0f0, #d0d0d0); /* Градиент: светло-серый и серый */
+    color: #333; /* Темно-серый текст для контраста */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
