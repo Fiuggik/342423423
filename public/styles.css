@@ -65,7 +65,7 @@ button:hover {
 /* Нижняя панель с кнопками */
 .bottom-panel {
     position: fixed;
-    bottom: 5;
+    bottom: -5;
     left: 0;
     right: 0;
     background-color: #fff;
