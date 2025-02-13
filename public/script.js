@@ -1,47 +1,51 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const tg = window.Telegram.WebApp;
 
-    // Элементы профиля
-    const firstName = document.getElementById('first-name');
-    const lastName = document.getElementById('last-name');
-    const username = document.getElementById('username');
-    const photo = document.getElementById('photo');
+    // Получение данных пользователя из Telegram
+    const user = tg.initDataUnsafe.user;
+    if (user) {
+        document.getElementById('photo').src = user.photo_url;
+        document.getElementById('first-name').textContent = user.first_name;
+        document.getElementById('last-name').textContent = user.last_name;
+        document.getElementById('username').textContent = user.username;
 
-    // Кнопки
-    const button1 = document.getElementById('button-1');
-    const button2 = document.getElementById('button-2');
-    const button3 = document.getElementById('button-3');
-    const button4 = document.getElementById('button-4');
-
-    // Проверяем, авторизован ли пользователь
-    if (tg.initDataUnsafe.user) {
-        const user = tg.initDataUnsafe.user;
-        // Заполняем данные профиля
-        firstName.textContent = user.first_name || 'Не указано';
-        lastName.textContent = user.last_name || 'Не указано';
-        username.textContent = user.username ? `@${user.username}` : 'Не указано';
-        photo.src = user.photo_url || '';
-    } else {
-        // Если пользователь не авторизован
-        firstName.textContent = 'Не авторизован';
-        lastName.textContent = '';
-        username.textContent = '';
+        // Сохранение данных пользователя на сервере
+        fetch('http://localhost:3000/save-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                telegram_id: user.id,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                username: user.username
+            })
+        }).then(response => response.json())
+          .then(data => {
+              console.log('User saved:', data);
+          });
     }
 
-    // Обработчики для кнопок
-    button1.addEventListener('click', function () {
-        tg.showAlert('Вы нажали кнопку 1');
-    });
+    // Обработка нажатий на кнопки
+    document.getElementById('button-1').addEventListener('click', () => saveAction(1));
+    document.getElementById('button-2').addEventListener('click', () => saveAction(2));
+    document.getElementById('button-3').addEventListener('click', () => saveAction(3));
+    document.getElementById('button-4').addEventListener('click', () => saveAction(4));
 
-    button2.addEventListener('click', function () {
-        tg.showAlert('Вы нажали кнопку 2');
-    });
-
-    button3.addEventListener('click', function () {
-        tg.showAlert('Вы нажали кнопку 3');
-    });
-
-    button4.addEventListener('click', function () {
-        tg.showAlert('Вы нажали кнопку 4');
-    });
+    function saveAction(buttonId) {
+        fetch('http://localhost:3000/save-action', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                action: `Button ${buttonId} clicked`
+            })
+        }).then(response => response.json())
+          .then(data => {
+              console.log('Action saved:', data);
+          });
+    }
 });
