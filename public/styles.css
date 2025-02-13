@@ -18,12 +18,17 @@ html, body {
     margin: 20px auto;
 }
 
+:root {
+  --primary-color: #29ABE2;
+  --secondary-color: #176ba0;
+}
+
 .profile-card {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #f0f0f0, #d0d0d0); /* Градиент: светло-серый и серый */
-    color: #333; /* Темно-серый текст для контраста */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
