@@ -4,76 +4,41 @@ body {
     color: #495057;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    align-items: center; /* Центрируем содержимое по горизонтали */
-    justify-content: center; /* Центрируем содержимое по вертикали */
 }
 
 .container {
     background: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 500px;
-    width: 90%; /* Уменьшаем ширину для мобильных устройств */
+    max-width: 400px;
+    width: 90%;
     margin: 20px auto;
-    transition: all 0.3s ease;
-    flex: 1; /* Растягиваем контейнер, чтобы нижняя панель оставалась внизу */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем содержимое контейнера */
-}
-
-.container:hover {
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card {
-    margin-bottom: 30px;
-    text-align: center; /* Центрируем текст внутри карточки профиля */
-}
-
-.profile-info {
-    text-align: center; /* Центрируем текст информации профиля */
     margin-bottom: 20px;
 }
 
+.profile-info {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
 .profile-photo {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-top: 10px;
     object-fit: cover;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
 }
 
-button {
-    background-color: #00a3cc;
-    color: white;
-    border: none;
-    padding: 15px; /* Увеличиваем padding для квадратных кнопок */
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100px; /* Фиксированная ширина для квадратных кнопок */
-    height: 100px; /* Фиксированная высота для квадратных кнопок */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-button:hover {
-    background-color: #007ea0;
-}
-
-/* Нижняя панель с кнопками */
 .bottom-panel {
     position: fixed;
     bottom: 0;
@@ -81,26 +46,22 @@ button:hover {
     right: 0;
     background-color: #fff;
     display: flex;
-    justify-content: center; /* Центрируем кнопки в панели */
-    border-radius: 8px 0 0 0;
-    padding: 15px;
+    justify-content: space-around;
+    padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Убедимся, что панель поверх других элементов */
 }
 
 .panel-button {
-    flex: 1; /* Кнопки занимают равное пространство */
-    margin: 0 5px;
-    padding: 15px; /* Увеличиваем padding для квадратных кнопок */
-    font-size: 14px;
     background-color: #00a3cc;
     color: white;
     border: none;
+    padding: 15px;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
     transition: background-color 0.3s ease;
-    width: 80px; /* Фиксированная ширина для квадратных кнопок */
-    height: 80px; /* Фиксированная высота для квадратных кнопок */
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,23 +71,15 @@ button:hover {
     background-color: #007ea0;
 }
 
-/* Адаптивность */
+/* Адаптивность для мобильных устройств */
 @media (max-width: 600px) {
     .container {
-        padding: 20px;
-        width: 90%; /* Уменьшаем ширину контейнера для мобильных устройств */
-        margin: 10px auto; /* Уменьшаем отступы */
-    }
-
-    .bottom-panel {
-        flex-direction: row; /* Кнопки в строку на мобильных устройствах */
-        align-items: center; /* Центрируем кнопки */
-        padding: 10px; /* Уменьшаем отступы */
+        padding: 15px;
     }
 
     .panel-button {
-        width: 70px; /* Уменьшаем размер кнопок для мобильных устройств */
-        height: 70px; /* Уменьшаем размер кнопок для мобильных устройств */
-        margin: 0 3px; /* Уменьшаем отступы между кнопками */
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
     }
 }
