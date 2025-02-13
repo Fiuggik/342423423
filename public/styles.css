@@ -8,8 +8,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    overflow-x: hidden;
+    min-height: 100vh; /* Already present, but crucial */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
@@ -18,9 +18,10 @@ body {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px;
-    width: 90%;
-    margin: 20px auto;
+    max-width: 400px; /* Keep this */
+    width: 90%; /* Keep this */
+    margin: 20px auto; /* Keep this */
+    box-sizing: border-box; /* add this */
 }
 
 .profile-card {
@@ -51,6 +52,7 @@ body {
     justify-content: space-around;
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Add this, if needed */
 }
 
 .panel-button {
