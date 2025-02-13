@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #e9f4f9;
 }
 
 
@@ -19,6 +20,11 @@ html, body {
 
 .profile-card {
     margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #6e8efb, #4a6cf7); /* Градиент: синий */
+    color: white; /* Белый текст для контраста */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для карточки */
 }
 
 .profile-info {
