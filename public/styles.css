@@ -1,15 +1,10 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #e9f4f9;
-    color: #495057;
+html, body {
+    overflow: hidden;
+    height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
 }
+
 
 .container {
     background: #fff;
