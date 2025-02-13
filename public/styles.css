@@ -1,24 +1,38 @@
+/* Убираем скролл */
 html, body {
     overflow: hidden;
-    background-color: #e9f4f9;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-
-.container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px; /* Keep this */
-    width: 90%; /* Keep this */
-    margin: 20px auto; /* Keep this */
-    box-sizing: border-box; /* add this */
+/* Общие стили */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
 }
 
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    font-weight: 600;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Градиент для карточки профиля */
 .profile-card {
     background: linear-gradient(135deg, #e0e7ff, #a3bffa); /* Серо-синий градиент */
     border-radius: 20px;
@@ -37,7 +51,10 @@ html, body {
     font-weight: 500;
 }
 
-
+.profile-info {
+    text-align: left;
+    margin-bottom: 20px;
+}
 
 .profile-info p {
     font-size: 1.1rem;
@@ -49,63 +66,78 @@ html, body {
     color: #2c3e50; /* Темно-серый цвет для выделения */
 }
 
-
-.profile-info {
-    text-align: left;
-    margin-bottom: 15px;
-}
-
 .profile-photo {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    object-fit: cover;
+    border: 3px solid #4a90e2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
 }
 
-.bottom-panel {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0 0 0 0;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100; /* Add this, if needed */
-}
-
-.panel-button {
-    background-color: #00a3cc;
+.profile-button {
+    background: #4a90e2;
     color: white;
     border: none;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.5s ease-in-out 0.3s forwards;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.panel-button:hover {
-    background-color: #007ea0;
+.profile-button:hover {
+    background: #357abd;
+    transform: scale(1.05);
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 600px) {
-    .container {
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .profile-card {
         padding: 15px;
     }
 
-    .panel-button {
-        width: 50px;
-        height: 50px;
-        font-size: 14px;
+    .profile-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .profile-info p {
+        font-size: 1rem;
+    }
+
+    .profile-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
