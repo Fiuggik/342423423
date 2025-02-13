@@ -61,48 +61,28 @@ button:hover {
     background-color: #007ea0;
 }
 
-.requests-section {
-    margin-top: 30px;
-    text-align: left;
+/* Контейнер для кнопок */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    gap: 10px; /* Отступ между кнопками */
+    margin-top: 20px;
 }
 
-.requests-list {
-    margin-top: 15px;
-    overflow-x: auto; /* Горизонтальный скролл */
-    -webkit-overflow-scrolling: touch; /* Плавный скролл на мобильных устройствах */
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 10px; /* Отступ снизу для лучшего визуального восприятия */
-    scrollbar-width: none; /* Скрыть полосу прокрутки в Firefox */
-}
-
-.requests-list::-webkit-scrollbar {
-    display: none; /* Скрыть полосу прокрутки в Chrome, Safari и Opera */
-}
-
-.request-item {
-    background: #f8f9fa;
+.action-button {
+    width: 100%; /* Кнопки занимают всю ширину ячейки */
     padding: 15px;
+    font-size: 16px;
+    background-color: #00a3cc;
+    color: white;
+    border: none;
     border-radius: 8px;
-    border: 1px solid #dee2e6;
-    transition: all 0.2s ease;
-    flex: 0 0 auto;
-    width: 200px; /* Фиксированная ширина для каждого элемента */
-    margin-right: 10px; /* Отступ между элементами */
-    scroll-snap-align: start; /* Выравнивание при скролле */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.request-item:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-}
-
-.request-item p {
-    margin: 5px 0;
-}
-
-.request-item:last-child {
-    margin-right: 0;
+.action-button:hover {
+    background-color: #007ea0;
 }
 
 /* Адаптивность */
@@ -111,12 +91,12 @@ button:hover {
         padding: 20px;
     }
 
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
+    .button-container {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных устройствах */
     }
 
-    .request-item {
-        width: 150px; /* Уменьшаем ширину для мобильных устройств */
+    .action-button {
+        padding: 12px;
+        font-size: 14px;
     }
 }
