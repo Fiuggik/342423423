@@ -22,8 +22,8 @@ html, body {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #f0f0f0, #d0d0d0); /* Градиент: светло-серый и серый */
-    color: #333; /* Темно-серый текст для контраста */
+    background: linear-gradient(135deg, #FF9A8B, #FF6B6B); /* Градиент: коралловый и розовый */
+    color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
