@@ -22,7 +22,7 @@ html, body {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #a8dadc, #457b9d); /* Пастельный градиент: бирюзовый и приглушенный синий */
+    background: linear-gradient(135deg, #29ABE2, #176ba0); /* Градиент: яркий синий и темно-синий */
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
