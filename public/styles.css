@@ -19,7 +19,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
     max-width: 500px;
-    width: 100%;
+    width: 90%; /* Уменьшаем ширину для мобильных устройств */
     margin: 20px auto;
     transition: all 0.3s ease;
     flex: 1; /* Растягиваем контейнер, чтобы нижняя панель оставалась внизу */
@@ -55,15 +55,18 @@ button {
     background-color: #00a3cc;
     color: white;
     border: none;
-    padding: 10px 10px;
+    padding: 15px; /* Увеличиваем padding для квадратных кнопок */
     border-radius: 8px;
     cursor: pointer;
     margin: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Кнопки занимают всю ширину контейнера */
-    max-width: 200px; /* Ограничиваем ширину кнопок */
+    width: 100px; /* Фиксированная ширина для квадратных кнопок */
+    height: 100px; /* Фиксированная высота для квадратных кнопок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover {
@@ -88,7 +91,7 @@ button:hover {
 .panel-button {
     flex: 1; /* Кнопки занимают равное пространство */
     margin: 0 5px;
-    padding: 10px;
+    padding: 15px; /* Увеличиваем padding для квадратных кнопок */
     font-size: 14px;
     background-color: #00a3cc;
     color: white;
@@ -96,7 +99,11 @@ button:hover {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    max-width: 150px; /* Ограничиваем ширину кнопок */
+    width: 80px; /* Фиксированная ширина для квадратных кнопок */
+    height: 80px; /* Фиксированная высота для квадратных кнопок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .panel-button:hover {
@@ -107,19 +114,19 @@ button:hover {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
-    }
-    button {
-        padding: 10px 10px;
+        width: 90%; /* Уменьшаем ширину контейнера для мобильных устройств */
+        margin: 10px auto; /* Уменьшаем отступы */
     }
 
     .bottom-panel {
+        flex-direction: row; /* Кнопки в строку на мобильных устройствах */
         align-items: center; /* Центрируем кнопки */
-        gap: 3px;
+        padding: 10px; /* Уменьшаем отступы */
     }
 
     .panel-button {
-        width: 100%; /* Кнопки занимают всю ширину */
-        max-width: none; /* Убираем ограничение по ширине */
-        margin: 5px 0; /* Отступы между кнопками */
+        width: 70px; /* Уменьшаем размер кнопок для мобильных устройств */
+        height: 70px; /* Уменьшаем размер кнопок для мобильных устройств */
+        margin: 0 3px; /* Уменьшаем отступы между кнопками */
     }
 }
