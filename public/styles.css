@@ -111,6 +111,7 @@ button:hover {
 
     .bottom-panel {
         align-items: center; /* Центрируем кнопки */
+        gap: 3px;
     }
 
     .panel-button {
