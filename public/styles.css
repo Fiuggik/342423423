@@ -3,12 +3,11 @@ body {
     background-color: #e9f4f9;
     color: #495057;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 0;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -19,7 +18,9 @@ body {
     text-align: center;
     max-width: 500px;
     width: 100%;
+    margin: 20px auto;
     transition: all 0.3s ease;
+    flex: 1; /* Растягиваем контейнер, чтобы нижняя панель оставалась внизу */
 }
 
 .container:hover {
@@ -61,18 +62,25 @@ button:hover {
     background-color: #007ea0;
 }
 
-/* Контейнер для кнопок */
-.button-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-    gap: 10px; /* Отступ между кнопками */
-    margin-top: 20px;
+/* Нижняя панель с кнопками */
+.bottom-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Убедимся, что панель поверх других элементов */
 }
 
-.action-button {
-    width: 100%; /* Кнопки занимают всю ширину ячейки */
-    padding: 15px;
-    font-size: 16px;
+.panel-button {
+    flex: 1; /* Кнопки занимают равное пространство */
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 14px;
     background-color: #00a3cc;
     color: white;
     border: none;
@@ -81,7 +89,7 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-.action-button:hover {
+.panel-button:hover {
     background-color: #007ea0;
 }
 
@@ -91,12 +99,8 @@ button:hover {
         padding: 20px;
     }
 
-    .button-container {
-        grid-template-columns: 1fr; /* 1 колонка на мобильных устройствах */
-    }
-
-    .action-button {
-        padding: 12px;
-        font-size: 14px;
+    .panel-button {
+        font-size: 12px;
+        padding: 8px;
     }
 }
